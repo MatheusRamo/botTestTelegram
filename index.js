@@ -28,7 +28,7 @@ bot.on('document', async (ctx) => {
 
     const pdfUrl = convertapi.convert('pdf', { File: `${fileUrl}` })
         .then(function (result) {
-            return result.file.url
+            return result
         })
         .catch(function (e) {
             console.error(e.toString())
@@ -36,7 +36,7 @@ bot.on('document', async (ctx) => {
 
 
     const response = await axios.get(fileUrl)
-    ctx.reply(`Url: ${fileUrl}\n Pdf Url: ${pdfUrl} \n content: ${response.data}`)
+    ctx.reply(`Url: ${fileUrl}\n Pdf Url: ${pdfUrl.file.url} \n content: ${response.data}`)
 })
 
 bot.command('photo', (ctx) => ctx.replyWithPhoto({ url: PhotoURL }))
