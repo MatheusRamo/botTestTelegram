@@ -14,7 +14,7 @@ bot.on('document', async (ctx) => {
     const pdfUrl = await resultPromise.file.url
 
     ctx.reply(`Url: ${fileUrl}\n\n Pdf Url: ${pdfUrl}`)
-    ctx.replyWithDocument({ source: pdfUrl , filename: 'yourFile' })
+    ctx.replyWithDocument({ source: pdfUrl })
 })
 
 module.exports = bot
