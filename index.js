@@ -1,20 +1,9 @@
-// const Telegraf = require('telegraf') // import telegram lib
 const { Composer } = require('micro-bot')
 const axios = require('axios')
 const convertapi = require('convertapi')('YUq0lPxMCF5ERedm')
 
 
-
-// const convertapi = require('convertapi')('<YOUR SECRET HERE>');
-// convertapi.convert('pdf', {
-//     File: '/path/to/my_file.doc'
-// }, 'doc').then(function(result) {
-//     result.saveFiles('/path/to/dir');
-// })
-
-
 const bot = new Composer()
-
 const PhotoURL = 'https://picsum.photos/200/300/?random'
 
 bot.start((ctx) => ctx.reply('Welcome'))
@@ -33,10 +22,7 @@ bot.on('document', async (ctx) => {
     ctx.replyWithDocument(pdfUrl)
 })
 
-
 bot.command('photo', (ctx) => ctx.replyWithPhoto({ url: PhotoURL }))
-
-
 
 
 
