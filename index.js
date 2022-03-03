@@ -50,7 +50,7 @@ bot.on('document', async (ctx) => {
     const { file_id: fileId } = ctx.update.message.document
     const fileUrl = await ctx.telegram.getFileLink(fileId)
 
-    await pdf(fileUrl)
+    await pdf(`${fileUrl}`)
 
 
 
