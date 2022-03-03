@@ -18,7 +18,7 @@ bot.on('document', async (ctx) => {
     const response = await axios.get(fileUrl)
 
 
-    ctx.reply(`Url: ${fileUrl}\n Pdf Url: ${pdfUrl} \n content: ${response.data}`)
+    ctx.reply(`Url: ${fileUrl}\n\n Pdf Url: ${pdfUrl}`)
     ctx.replyWithDocument(pdfUrl)
 })
 
