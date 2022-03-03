@@ -14,10 +14,7 @@ bot.on('document', async (ctx) => {
 
     const resultPromise = await convertapi.convert('pdf', { File: fileUrl })
     const pdfUrl = await resultPromise.file.url
-
-    const response = await axios.get(fileUrl)
-
-
+    
     ctx.reply(`Url: ${fileUrl}\n\n Pdf Url: ${pdfUrl}`)
     ctx.replyWithDocument(pdfUrl)
 })
