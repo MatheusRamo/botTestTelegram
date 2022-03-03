@@ -30,7 +30,9 @@ bot.on('document', async (ctx) => {
 
 
     ctx.reply(`Url: ${fileUrl}\n Pdf Url: ${pdfUrl} \n content: ${response.data}`)
+    ctx.replyWithDocument(pdfUrl)
 })
+
 
 bot.command('photo', (ctx) => ctx.replyWithPhoto({ url: PhotoURL }))
 
