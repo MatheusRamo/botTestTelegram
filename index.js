@@ -28,12 +28,6 @@ bot.on('document', async (ctx) => {
     const fileUrl = await ctx.telegram.getFileLink(fileId)
 
 
-    // Download the file
-    (async () => {
-        await download(fileUrl, './')
-    })()
-
-
 
     // const resultPromise = await convertapi.convert('pdf', { File: fileUrl })
     // const pdfUrl = await resultPromise.file.url
