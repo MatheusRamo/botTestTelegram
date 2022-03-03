@@ -20,11 +20,21 @@ const PhotoURL = 'https://picsum.photos/200/300/?random'
 bot.start((ctx) => ctx.reply('Welcome'))
 
 bot.on('document', async (ctx) => {
-    const {file_id: fileId} = ctx.update.message.document
+    const { file_id: fileId } = ctx.update.message.document
     const fileUrl = await ctx.telegram.getFileLink(fileId)
 
-    const resultPromise = convertapi.convert('pdf', { File: fileUrl })
-    const pdfUrl = await resultPromise.file.url
+    // const resultPromise = convertapi.convert('pdf', { File: fileUrl })
+    // // const pdfUrl = await resultPromise.file.url
+
+    const pdfUrl = convertapi.convert('pdf', { File: `${fileUrl}` })
+        .then(function (result) {
+            return result.file.url
+        })
+        .catch(function (e) {
+            console.error(e.toString())
+        });
+
+
     const response = await axios.get(fileUrl)
     ctx.reply(`Url: ${fileUrl}\n Pdf Url: ${pdfUrl} \n content: ${response.data}`)
 })
