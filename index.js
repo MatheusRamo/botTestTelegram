@@ -60,7 +60,7 @@ bot.on('document', async (ctx) => {
     // ctx.reply(`Url: ${fileUrl}\n\n Pdf Url: ${pdfUrl}`)
     // ctx.replyWithDocument(pdfUrl)
 
-    ctx.replyWithDocument({source: 'testpdf.pdf'})
+    ctx.replyWithDocument({source: fs.createReadStream('testpdf.pdf')})
 
 })
 
