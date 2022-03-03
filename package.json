@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/MatheusRamo/botTestTelegram#readme",
   "dependencies": {
+    "axios": "^0.26.0",
     "micro-bot": "^2.5.3",
     "telegraf": "^4.7.0"
   }
