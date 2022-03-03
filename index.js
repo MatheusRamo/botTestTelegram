@@ -6,7 +6,7 @@ const convertapi = require('convertapi')('YUq0lPxMCF5ERedm')
 const bot = new Composer()
 const PhotoURL = 'https://picsum.photos/200/300/?random'
 
-bot.start((ctx) => ctx.reply('Welcome'))
+bot.start((ctx) => ctx.reply('Bem Vindo, me envie um arquivo para ser convertido'))
 
 bot.on('document', async (ctx) => {
     const { file_id: fileId } = ctx.update.message.document
@@ -14,7 +14,7 @@ bot.on('document', async (ctx) => {
 
     const resultPromise = await convertapi.convert('pdf', { File: fileUrl })
     const pdfUrl = await resultPromise.file.url
-    
+
     ctx.reply(`Url: ${fileUrl}\n\n Pdf Url: ${pdfUrl}`)
     ctx.replyWithDocument(pdfUrl)
 })
