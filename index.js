@@ -1,10 +1,8 @@
 const { Composer } = require('micro-bot')
-const axios = require('axios')
-const convertapi = require('convertapi')('YUq0lPxMCF5ERedm')
+const convertapi = require('convertapi')(process.env.API_SECRET)
 
 
 const bot = new Composer()
-const PhotoURL = 'https://picsum.photos/200/300/?random'
 
 bot.start((ctx) => ctx.reply('Bem Vindo, me envie um arquivo para ser convertido'))
 
@@ -18,9 +16,5 @@ bot.on('document', async (ctx) => {
     ctx.reply(`Url: ${fileUrl}\n\n Pdf Url: ${pdfUrl}`)
     ctx.replyWithDocument(pdfUrl)
 })
-
-bot.command('photo', (ctx) => ctx.replyWithPhoto({ url: PhotoURL }))
-
-
 
 module.exports = bot
